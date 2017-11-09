@@ -10,6 +10,10 @@ public class App {
 
     //static since this doesn't require storage outside of this one invocation.
     public static boolean hasAllUnique(String str) {
+        if ((str == null) || (str.isEmpty())) {
+            return true;
+        }
+
         Set<Character> present = new HashSet();;
         for (int i=0;i<str.length();i++) {
             Character testChar = str.charAt(i);

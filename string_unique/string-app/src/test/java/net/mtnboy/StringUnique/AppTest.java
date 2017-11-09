@@ -28,20 +28,46 @@ public class AppTest
         return new TestSuite( AppTest.class );
     }
 
-    public void testApp()
+    public void testEmpties()
     {
         assertEquals(App.hasAllUnique(null), true);
         assertEquals(App.hasAllUnique(""), true);
+    }
 
+    public void testNums() {
         assertEquals(App.hasAllUnique("01234{}"), true);
         assertEquals(App.hasAllUnique("01234{}0"), false);
+    }
 
+    public void testCase() {
         assertEquals(App.hasAllUnique("abcABC"), true);
         assertEquals(App.hasAllUnique("ABCABC"), false);
+    }
 
-        //skip long string test because I'm lazy to build a unit test for this. TBD with another test framework.
+    //skip long string test because I'm lazy to build a unit test for this. TBD with another test framework.
 
+    public void testShort() {
         assertEquals(App.hasAllUnique("a"), true);
         assertEquals(App.hasAllUnique("aa"), false);
+    }
+
+    public void testDup() {
+        assertEquals(App.hasAllUnique("hello"), false);
+        assertEquals(App.hasAllUnique("heloh"), false);
+        assertEquals(App.hasAllUnique("eehlo"), false);
+        assertEquals(App.hasAllUnique("ehloh"), false);
+    }
+
+    public void testNoDup() {
+        assertEquals(App.hasAllUnique("abcdefghijklmno"), true);
+        assertEquals(App.hasAllUnique("ABCDEFG"), true);
+        assertEquals(App.hasAllUnique("abcCBA"), true);
+    }
+
+    public void testWhiteSpace() {
+        assertEquals(App.hasAllUnique(" "), true);
+        assertEquals(App.hasAllUnique("  "), false);
+        assertEquals(App.hasAllUnique(" \t"), true);
+        assertEquals(App.hasAllUnique(" \n"), true);
     }
 }
