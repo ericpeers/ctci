@@ -30,25 +30,25 @@ public class AppTest
 
     public void testEmpties()
     {
-        assertTrue(App.hasAllUnique(null));
-        assertTrue(App.hasAllUnique(""));
+        assertTrue("check null", App.hasAllUnique(null));
+        assertTrue("check empty", App.hasAllUnique(""));
     }
 
     public void testNums() {
-        assertTrue(App.hasAllUnique("01234{}"));
-        assertFalse(App.hasAllUnique("01234{}0"));
+        assertTrue("check nums",  App.hasAllUnique("01234{}"));
+        assertFalse("check nums with dup",  App.hasAllUnique("01234{}0"));
     }
 
     public void testCase() {
-        assertTrue(App.hasAllUnique("abcABC"));
-        assertFalse(App.hasAllUnique("ABCABC"));
+        assertTrue("check mixed case", App.hasAllUnique("abcABC"));
+        assertFalse("check upcase dups", App.hasAllUnique("ABCABC"));
     }
 
     //skip long string test because I'm lazy to build a unit test for this. TBD with another test framework.
 
     public void testShort() {
-        assertTrue(App.hasAllUnique("a"));
-        assertFalse(App.hasAllUnique("aa"));
+        assertTrue("check singleton", App.hasAllUnique("a"));
+        assertFalse("check dup, but short", App.hasAllUnique("aa"));
     }
 
     public void testDup() {
@@ -59,15 +59,15 @@ public class AppTest
     }
 
     public void testNoDup() {
-        assertTrue(App.hasAllUnique("abcdefghijklmno"));
-        assertTrue(App.hasAllUnique("ABCDEFG"));
-        assertTrue(App.hasAllUnique("abcCBA"));
+        assertTrue("simple no dup", App.hasAllUnique("abcdefghijklmno"));
+        assertTrue("upcase no dup", App.hasAllUnique("ABCDEFG"));
+        assertTrue("mixcase, no dup", App.hasAllUnique("abcCBA"));
     }
 
     public void testWhiteSpace() {
-        assertTrue(App.hasAllUnique(" "));
-        assertFalse(App.hasAllUnique("  "));
-        assertTrue(App.hasAllUnique(" \t"));
-        assertTrue(App.hasAllUnique(" \n"));
+        assertTrue("white space, no dup", App.hasAllUnique(" "));
+        assertFalse("double space, dup", App.hasAllUnique("  "));
+        assertTrue("mixed space, no dup", App.hasAllUnique(" \t"));
+        assertTrue("mixed space no dup2", App.hasAllUnique(" \n"));
     }
 }
