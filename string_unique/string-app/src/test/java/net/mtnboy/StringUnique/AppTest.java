@@ -30,44 +30,44 @@ public class AppTest
 
     public void testEmpties()
     {
-        assertEquals(App.hasAllUnique(null), true);
-        assertEquals(App.hasAllUnique(""), true);
+        assertTrue(App.hasAllUnique(null));
+        assertTrue(App.hasAllUnique(""));
     }
 
     public void testNums() {
-        assertEquals(App.hasAllUnique("01234{}"), true);
-        assertEquals(App.hasAllUnique("01234{}0"), false);
+        assertTrue(App.hasAllUnique("01234{}"));
+        assertFalse(App.hasAllUnique("01234{}0"));
     }
 
     public void testCase() {
-        assertEquals(App.hasAllUnique("abcABC"), true);
-        assertEquals(App.hasAllUnique("ABCABC"), false);
+        assertTrue(App.hasAllUnique("abcABC"));
+        assertFalse(App.hasAllUnique("ABCABC"));
     }
 
     //skip long string test because I'm lazy to build a unit test for this. TBD with another test framework.
 
     public void testShort() {
-        assertEquals(App.hasAllUnique("a"), true);
-        assertEquals(App.hasAllUnique("aa"), false);
+        assertTrue(App.hasAllUnique("a"));
+        assertFalse(App.hasAllUnique("aa"));
     }
 
     public void testDup() {
-        assertEquals(App.hasAllUnique("hello"), false);
-        assertEquals(App.hasAllUnique("heloh"), false);
-        assertEquals(App.hasAllUnique("eehlo"), false);
-        assertEquals(App.hasAllUnique("ehloh"), false);
+        assertFalse(App.hasAllUnique("hello"));
+        assertFalse(App.hasAllUnique("heloh"));
+        assertFalse(App.hasAllUnique("eehlo"));
+        assertFalse(App.hasAllUnique("ehloh"));
     }
 
     public void testNoDup() {
-        assertEquals(App.hasAllUnique("abcdefghijklmno"), true);
-        assertEquals(App.hasAllUnique("ABCDEFG"), true);
-        assertEquals(App.hasAllUnique("abcCBA"), true);
+        assertTrue(App.hasAllUnique("abcdefghijklmno"));
+        assertTrue(App.hasAllUnique("ABCDEFG"));
+        assertTrue(App.hasAllUnique("abcCBA"));
     }
 
     public void testWhiteSpace() {
-        assertEquals(App.hasAllUnique(" "), true);
-        assertEquals(App.hasAllUnique("  "), false);
-        assertEquals(App.hasAllUnique(" \t"), true);
-        assertEquals(App.hasAllUnique(" \n"), true);
+        assertTrue(App.hasAllUnique(" "));
+        assertFalse(App.hasAllUnique("  "));
+        assertTrue(App.hasAllUnique(" \t"));
+        assertTrue(App.hasAllUnique(" \n"));
     }
 }
