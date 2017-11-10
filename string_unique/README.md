@@ -52,3 +52,4 @@ Approximately 2 hours, with two minor interruptions. Lots of mvn learning, had t
 * mvn setup, including the default example on apache is not valid. New mvn requires package.
 * Basic testing in java
 * That an editor that fixes imports for me is useful. Emacs not really cutting it. But making me think a bit.
+* Extended chars are not trivial. Would prefer to be able to escape them via a hex code in a string.
