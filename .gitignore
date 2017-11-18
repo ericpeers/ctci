@@ -1,0 +1,8 @@
+#ignore idea directories
+**/.idea
+
+#ignore target
+**/target
+
+#ignore idea config
+**/*.iml
