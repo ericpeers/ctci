@@ -22,7 +22,7 @@ public class Matrix {
             for (int col = 0; col <= terminal; col++) {
                 //hold column constant in target, work down row
                 //hold row constant in src. work across column.
-                target[terminal - col][terminal - row] = rc[row][col];
+                target[col][terminal-row] = rc[row][col];
             }
         }
         rc = target;

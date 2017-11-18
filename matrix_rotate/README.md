@@ -41,9 +41,14 @@ so instead, rotate each ring, one at a time. Stopping at row > (ring /2). Odd el
 * 4 byted-ness may be interesting, but I could just treat this as an int. Having or signature values in the high order and small order bytes*
 
 ## Comments
-
+* My brain doesn't like this problem for some reason. It seems inelegant to build a ring based approach for in place.
+* Getting the math right between row and column is tricky.
 
 ## What I learned
+* Array initialization in Java uses left to right, 0th element on the left
+* Newest version of Junit has array comparators. Maven brings in an earlier version.
+
 
 
 ## Time to complete
+3 hours
