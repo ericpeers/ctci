@@ -28,6 +28,43 @@ public class Matrix {
         rc = target;
     }
 
+    public void rotate90InPlace() {
+        int swap, swap2;
+        int ringlen = size;
+        int ring = 0;
+        while (ringlen > 1) {
+            int terminal = size-ring-1;
+            for (int col=0;col<=ringlen-2;col++) { //I don't want to double swap my corners.
+                //do a 4 way swap. Top goes to Right. Right goes to Bottom. Bottom goes to Left, Left to Top
+
+                //top to right
+                int targetCol = terminal;
+                int targetRow = col + ring;
+                swap = rc[targetRow][targetCol];
+                rc[targetRow][targetCol] = rc[ring][col+ring];
+
+                //right to bottom
+                targetCol = terminal-col;
+                targetRow = terminal;
+                swap2 = rc[targetRow][targetCol];
+                rc[targetRow][targetCol] = swap;
+
+                //bottom to left
+                targetCol = ring;
+                targetRow = terminal-col;
+                swap = rc[targetRow][targetCol];
+                rc[targetRow][targetCol] = swap2;
+
+                //left to top
+                rc[ring][col + ring] = swap;
+            }
+            ringlen-=2;
+            ring++;
+
+
+        }
+
+    }
     /*
         public void rotate90() {
             int swap;
